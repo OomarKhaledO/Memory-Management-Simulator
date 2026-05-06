@@ -252,5 +252,14 @@ namespace OS
 	{
 		public int size;
 		public bool foundFrame;
+		public Process()
+		{
+
+		}
+		public Process(Process p)
+		{
+			this.size = p.size;
+			this.foundFrame = p.foundFrame;
+		}
 	}
 }

@@ -16,7 +16,7 @@ namespace OS
 	public partial class Form3 : Form
 	{
 		int numberOfMemoryPortions;
-		List<int> memoryPortions = new List<int>();
+		List<memoryBlock> memoryBlocks = new List<memoryBlock>();
 		List<Process> processes = new List<Process>();
 		bool locked = false;
 		int ct = 0;
@@ -33,6 +33,7 @@ namespace OS
 			button2.MouseEnter += Button2_MouseEnter;
 			button2.MouseLeave += Button2_MouseLeave;
 			listBox1.KeyDown += ListBox1_KeyDown;
+		
 		}
 
 		private void Form3_Load(object sender, EventArgs e)
@@ -112,7 +113,6 @@ namespace OS
 
 				if (numberOfMemoryPortions > 0)
 				{
-					memoryPortions.Add(value);
 					listBox1.Items.Add(value);
 					textBox1.Enabled = false;
 					textBox2.Clear();
@@ -123,7 +123,15 @@ namespace OS
 				{
 					for (int i = 0; i < ct; i++)
 					{
-						memoryPortions.Add((int)listBox1.Items[i]);
+						memoryBlock m = new memoryBlock();
+						m.allocated = false;
+						m.blockSize = (int)listBox1.Items[i];
+						m.process = -1;
+						m.originalBlockSize = (int)listBox1.Items[i];
+						m.remaining = (int)listBox1.Items[i];
+						m.index = i;
+						m.isFrag = false;
+						memoryBlocks.Add(m);
 					}
 					listBox1.SelectionMode = SelectionMode.None;
 					textBox2.Enabled = false;
@@ -139,7 +147,7 @@ namespace OS
 		
 		private void button2_Click(object sender, EventArgs e)
 		{
-			Form4 f4 = new Form4(memoryPortions, processes);
+			Form4 f4 = new Form4(memoryBlocks, processes);
 			this.Hide();
 			f4.Show();
 			f4.Location = new Point(this.Location.X, this.Location.Y);
@@ -176,7 +184,7 @@ namespace OS
 			listBox1.Items.Clear();
 			listBox1.SelectionMode = SelectionMode.One;
 
-			memoryPortions.Clear();		
+			memoryBlocks.Clear();		
 		}
 
 		private void Button2_MouseLeave(object sender, EventArgs e)
@@ -237,6 +245,30 @@ namespace OS
 		}
 
 
+	}
+	public class memoryBlock
+	{
+		public int index;
+		public int blockSize;
+		public int remaining;
+		public int process;
+		public bool allocated;
+		public bool isFrag;
+		public int originalBlockSize;
+		public memoryBlock()
+		{
+
+		}
+		public memoryBlock(memoryBlock m)
+		{
+			this.blockSize = m.blockSize;
+			this.remaining = m.remaining;
+			this.process = m.process;
+			this.allocated = m.allocated;
+			this.index = m.index;
+			this.isFrag = m.isFrag;
+			this.originalBlockSize = m.originalBlockSize;
+		}
 	}
 }
 

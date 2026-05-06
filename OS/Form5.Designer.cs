@@ -73,6 +73,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.back = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.tryDifferentAlgo = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// listBox2
@@ -550,9 +551,9 @@
 			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(70)))));
 			this.label2.Location = new System.Drawing.Point(56, 40);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(196, 20);
+			this.label2.Size = new System.Drawing.Size(31, 20);
 			this.label2.TabIndex = 165;
-			this.label2.Text = "F I R S T - F I T";
+			this.label2.Text = "  ";
 			// 
 			// back
 			// 
@@ -562,7 +563,7 @@
 			this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.back.Font = new System.Drawing.Font("Prestige Elite Std", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Document, ((byte)(0)));
 			this.back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(50)))));
-			this.back.Location = new System.Drawing.Point(104, 320);
+			this.back.Location = new System.Drawing.Point(88, 352);
 			this.back.Name = "back";
 			this.back.Size = new System.Drawing.Size(138, 18);
 			this.back.TabIndex = 166;
@@ -578,7 +579,7 @@
 			this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.label4.Font = new System.Drawing.Font("Prestige Elite Std", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Document, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(50)))));
-			this.label4.Location = new System.Drawing.Point(104, 368);
+			this.label4.Location = new System.Drawing.Point(88, 392);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(138, 18);
 			this.label4.TabIndex = 167;
@@ -586,12 +587,29 @@
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.label4.Click += new System.EventHandler(this.label4_Click);
 			// 
+			// tryDifferentAlgo
+			// 
+			this.tryDifferentAlgo.AutoSize = true;
+			this.tryDifferentAlgo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.tryDifferentAlgo.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.tryDifferentAlgo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.tryDifferentAlgo.Font = new System.Drawing.Font("Prestige Elite Std", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Document, ((byte)(0)));
+			this.tryDifferentAlgo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(50)))));
+			this.tryDifferentAlgo.Location = new System.Drawing.Point(88, 312);
+			this.tryDifferentAlgo.Name = "tryDifferentAlgo";
+			this.tryDifferentAlgo.Size = new System.Drawing.Size(138, 18);
+			this.tryDifferentAlgo.TabIndex = 168;
+			this.tryDifferentAlgo.Text = "    T R Y    ";
+			this.tryDifferentAlgo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.tryDifferentAlgo.Click += new System.EventHandler(this.tryDifferentAlgo_Click);
+			// 
 			// Form5
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Black;
 			this.ClientSize = new System.Drawing.Size(320, 451);
+			this.Controls.Add(this.tryDifferentAlgo);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.back);
 			this.Controls.Add(this.label2);
@@ -693,5 +711,6 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label back;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label tryDifferentAlgo;
 	}
 }
