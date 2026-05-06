@@ -102,6 +102,7 @@
 			this.button1.TabIndex = 21;
 			this.button1.Text = "  B E S T - F I T  ";
 			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// button3
 			// 
@@ -117,6 +118,7 @@
 			this.button3.TabIndex = 22;
 			this.button3.Text = "  W O R S T - F I T  ";
 			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// label21
 			// 
