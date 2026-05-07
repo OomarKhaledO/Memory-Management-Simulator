@@ -88,7 +88,10 @@ namespace OS
 
 		private void label59_Click(object sender, EventArgs e)
 		{
-
-		}
+            Form6 f6 = new Form6();
+            this.Hide();
+            f6.Show();
+            f6.Location = new Point(this.Location.X, this.Location.Y);
+        }
 	}
 }

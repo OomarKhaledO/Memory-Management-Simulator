@@ -247,8 +247,13 @@ namespace OS
 		{
 
 		}
-	}
-	public class Process
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+    public class Process
 	{
 		public int size;
 		public bool foundFrame;
