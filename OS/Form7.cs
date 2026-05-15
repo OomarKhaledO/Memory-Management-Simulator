@@ -29,7 +29,7 @@ namespace OS
         private void button2_Click(object sender, EventArgs e)
         {
 
-            Form8 f8 = new Form8(referenceString, frames);
+            Form8 f8 = new Form8(referenceString, frames, "FIFO");
 
             this.Hide();
             f8.Show();
@@ -39,12 +39,22 @@ namespace OS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Form8 f8 = new Form8(referenceString, frames, "Optimal");
 
+            this.Hide();
+            f8.Show();
+
+            f8.Location = new Point(this.Location.X, this.Location.Y);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Form8 f8 = new Form8(referenceString, frames, "LRU");
 
+            this.Hide();
+            f8.Show();
+
+            f8.Location = new Point(this.Location.X, this.Location.Y);
         }
     }
 }
