@@ -169,7 +169,91 @@ namespace OS
             }
         }
         private void RunOptimal()
-        { }
+        {
+            List<int> memory = new List<int>();
+            List<int> previous = new List<int>();
+
+            for (int c = 0; c < arr.Length; c++)
+            {
+                int page = int.Parse(arr[c]);
+
+                if (!memory.Contains(page))
+                {
+                    if (memory.Count < frames)
+                    {
+                        memory.Add(page);
+                    }
+                    else
+                    {
+                        int pageToReplace = -1;
+                        int farthest = -1;
+
+                        foreach (int p in memory)
+                        {
+                            int nextUse = int.MaxValue;
+
+                            for (int future = c + 1; future < arr.Length; future++)
+                            {
+                                if (int.Parse(arr[future]) == p)
+                                {
+                                    nextUse = future;
+                                    break;
+                                }
+                            }
+
+                            if (nextUse > farthest)
+                            {
+                                farthest = nextUse;
+                                pageToReplace = p;
+                            }
+                        }
+
+                        int replaceIndex = memory.IndexOf(pageToReplace);
+                        memory[replaceIndex] = page;
+                    }
+                }
+
+                bool same = true;
+
+                if (previous.Count != memory.Count)
+                {
+                    same = false;
+                }
+                else
+                {
+                    for (int i = 0; i < memory.Count; i++)
+                    {
+                        if (previous[i] != memory[i])
+                        {
+                            same = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (same)
+                {
+                    for (int r = 0; r < frames; r++)
+                    {
+                        cells[r, c].Visible = false;
+                    }
+                }
+                else
+                {
+                    for (int r = 0; r < frames; r++)
+                    {
+                        cells[r, c].Text = "";
+                    }
+
+                    for (int r = 0; r < memory.Count; r++)
+                    {
+                        cells[r, c].Text = memory[r].ToString();
+                    }
+                }
+
+                previous = new List<int>(memory);
+            }
+        }
         private void RunFIFO()
         {
             List<int> memory = new List<int>();
